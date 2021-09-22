@@ -3,10 +3,10 @@ Analysis of portfolio and projections for 5,10 and 30 years using Monte Carlo si
 This porject's objective is to create a set of tools for investor to - one to visualize the preformance of their investements in this case mix of stocks and crypto currencies using historical closing prices and second to project 5, 10 and 30 years performace of the portifolio
 
 ## Personal Financial Planner
-The stock data was accessed using Alpaca Market APIs and an Alternative Free Crypto API was used to access Bitcoin and Ehterium closing prices. 
+    The stock data was accessed using Alpaca Market APIs and an Alternative Free Crypto API was used to access Bitcoin and Ehterium closing prices. 
 ### Parse the data from alternative crypto api using .json() funtion
-btc_data = requests.get(btc_url).json()
-eth_data = requests.get(eth_url).json()
+        btc_data = requests.get(btc_url).json()
+        eth_data = requests.get(eth_url).json()
 
 ### Compute current values using respective codes from the dataset to retrieve respective closing prices of the crypto
         my_btc_value = my_btc * btc_data['data']["1"]['quotes']['USD']['price']
@@ -49,18 +49,18 @@ closing_price_df = alpaca_api_df.get_barset(
 ### Setup monthly income to 1200 and create and a dataframe with stocks and crypto savings in it
 '''
 # Setup the dictionary to create the savings df
-data = {'Amount':[crypto_amt, shares_amt]}
+        data = {'Amount':[crypto_amt, shares_amt]}
 
 ### Create savings DataFrame using pandas DataFrame function
-df_savings = pd.DataFrame(data, index=['crypto','shares'])
+        df_savings = pd.DataFrame(data, index=['crypto','shares'])
 
 ### Validate that data frame was created with right data and structure
-display(df_savings)
+        display(df_savings)
 '''
 ### Plot the savings data as a pie chart
 '''
 #Visualize the savings dataframe using pie chart
-pie_plot = df_savings.plot.pie(y="Amount", title="Stocks Portfolio Composition")
+        pie_plot = df_savings.plot.pie(y="Amount", title="Stocks Portfolio Composition")
 
 '''
 ![Financial Planner](Images/SavingsPieChart.png)
@@ -92,4 +92,4 @@ pie_plot = df_savings.plot.pie(y="Amount", title="Stocks Portfolio Composition")
         ci_upper = round(sum_data[9] * initial_investment, 2)
 
 ### Results
-"There is a 95% chance that an initial investment of $30000.0 in the portfolio over the next 30 years will end within in the range of $161411.45 and $2018208.96"
+    There is a 95% chance that an initial investment of $30000.0 in the portfolio over the next 30 years will end within in the range of $161411.45 and $2018208.96
